@@ -1,0 +1,241 @@
+@use "sass:math";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@function rem($px) {
+  @return math.div($px, 16px) * 1rem;
+}
+$stone100: hsl(30, 54%, 90%);
+$stone150: hsl(30, 18%, 87%);
+$stone600: hsl(30, 10%, 34%);
+$stone900: hsl(24, 5%, 18%);
+$brown800: hsl(14, 45%, 36%);
+$rose800: hsl(332, 51%, 32%);
+$rose50: hsl(330, 100%, 98%);
+$white: hsl(0, 0%, 100%);
+$font-family-young: "Young Serif", serif;
+$font-family-outfit: "Outfit", sans-serif;
+body {
+  background-color: $stone100;
+}
+.container {
+  max-width: rem(1440px);
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: rem(128px) rem(48px);
+  display: flex;
+  justify-content: center;
+  @media (max-width: rem(768px)) {
+    max-width: rem(768px);
+    width: 100%;
+  }
+}
+.card {
+  width: rem(736px);
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  gap: rem(40px);
+  padding: rem(40px);
+  border-radius: rem(24px);
+  @media (max-width: rem(768px)) {
+    max-width: rem(616px);
+    width: 100%;
+  }
+
+  img {
+    width: 100%;
+    height: rem(300px);
+    display: block;
+    object-fit: cover;
+    border-radius: rem(12px);
+  }
+
+  .text-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: rem(32px);
+  }
+}
+.title {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: rem(24px);
+  text-align: left;
+  h1 {
+    font-size: rem(40px);
+    line-height: 1;
+    color: $stone900;
+    font-family: $font-family-young;
+    font-weight: 400;
+  }
+  p {
+    font-size: rem(16px);
+    line-height: 1.5;
+    color: $stone600;
+    font-family: $font-family-outfit;
+    font-weight: 400;
+  }
+}
+.preparation {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+  background-color: $rose50;
+  border-radius: rem(12px);
+  padding: rem(24px);
+  font-family: $font-family-outfit;
+  h2 {
+    font-size: rem(20px);
+    color: $rose800;
+    line-height: 1;
+    text-align: left;
+    font-weight: 600;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: rem(8px);
+    list-style-position: inside;
+    padding-left: 0;
+    li {
+      color: $stone600;
+      font-size: rem(16px);
+      line-height: 1.5;
+    }
+  }
+}
+.ingredients {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: rem(24px);
+  h2 {
+    font-size: rem(28px);
+    line-height: 1;
+    color: $brown800;
+    font-family: $font-family-young;
+    font-weight: 400;
+    text-align: left;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: rem(8px);
+    list-style-position: outside;
+    padding-left: rem(24px);
+    li {
+      font-size: rem(16px);
+      line-height: 1.5;
+      color: $stone600;
+      text-align: left;
+      font-family: $font-family-outfit;
+      font-weight: 400;
+      padding-left: rem(16px);
+    }
+  }
+}
+.line {
+  width: 100%;
+  height: rem(1px);
+  background-color: $stone150;
+  border: none;
+}
+.instructions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: rem(24px);
+  h2 {
+    font-size: rem(28px);
+    font-family: $font-family-young;
+    font-weight: 400;
+    color: $brown800;
+    line-height: 1;
+    text-align: left;
+  }
+  ol {
+    display: flex;
+    flex-direction: column;
+    gap: rem(8px);
+    list-style-position: outside;
+    padding-left: rem(32px);
+    li {
+      color: $stone600;
+      font-size: rem(16px);
+      font-family: $font-family-outfit;
+      font-weight: 400;
+      padding-left: rem(16px);
+      line-height: 1.5;
+      strong {
+        color: $stone600;
+        font-weight: 700;
+      }
+      &::marker {
+        color: $brown800;
+        font-size: rem(16px);
+        font-family: $font-family-outfit;
+        font-weight: 700;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+.nutrition {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: rem(24px);
+  h2 {
+    font-size: rem(28px);
+    font-family: $font-family-young;
+    font-weight: 400;
+    line-height: 1;
+    color: $brown800;
+  }
+  p {
+    font-size: rem(16px);
+    font-family: $font-family-outfit;
+    font-weight: 400;
+    line-height: 1.5;
+    color: $stone600;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    tr {
+      border-bottom: 1px solid $stone150;
+      &:last-child {
+        border-bottom: none;
+      }
+      td {
+        font-size: rem(16px);
+        padding: rem(12px) rem(32px);
+        font-family: $font-family-outfit;
+        font-weight: 400;
+        color: $stone600;
+        line-height: 1.5;
+      }
+      &:first-child td {
+        padding-top: 0;
+      }
+      &:last-child td {
+        padding-bottom: 0;
+      }
+      .value {
+        font-size: rem(16px);
+        font-family: $font-family-outfit;
+        font-weight: 700;
+        color: $brown800;
+        line-height: 1.5;
+      }
+    }
+  }
+}
